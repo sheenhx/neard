@@ -1,1 +1,0 @@
-/home/sheen/trunk/neard/include/nfc_copy.h
