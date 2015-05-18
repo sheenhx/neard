@@ -1,0 +1,56 @@
+Near Field Communication manager
+********************************
+
+Copyright (C) 2011  Intel Corporation. All rights reserved.
+
+
+Compilation and installation
+============================
+
+In order to compile neard you need following software packages:
+	- GCC compiler
+	- D-Bus library
+	- GLib library
+	- Netlink (libnl) library, version 1 or 2.
+
+To configure run:
+	./configure --prefix=/usr
+
+Configure automatically searches for all required components and packages.
+
+To compile and install run:
+	make && make install
+
+Configuration and options
+=========================
+
+By default all neard plugins and features are built in. They can be
+disabled with the following configuration options:
+
+	--disable-nfctype1
+
+		Disable support for type 1 NFC tags.
+
+	--disable-nfctype2
+
+		Disable support for type 2 NFC tags.
+
+	--disable-nfctype3
+
+		Disable support for type 3 NFC tags.
+
+	--disable-nfctype4
+
+		Disable support for type 1 NFC tags.
+
+	--disable-nfctype5
+
+		Disable support for type 5 ISO 15693 tags.
+
+	--disable-p2p
+
+		Disable support for peer to peer mode.
+
+Running ./bootstrap-configure will build the configure script and then
+run it, with maintainer mode enabled. bootstrap-configure will configure
+neard with all features enabled.

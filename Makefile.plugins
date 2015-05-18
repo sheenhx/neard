@@ -1,0 +1,46 @@
+
+plugin_cflags = -fvisibility=hidden -I$(srcdir)/gdbus \
+					@DBUS_CFLAGS@ @GLIB_CFLAGS@
+plugin_ldflags = -no-undefined -module -avoid-version
+
+if NFCTYPE1
+builtin_modules += nfctype1
+builtin_sources += plugins/nfctype1.c
+endif
+
+if NFCTYPE2
+builtin_modules += nfctype2
+builtin_sources += plugins/nfctype2.c plugins/mifare.c
+endif
+
+if NFCTYPE3
+builtin_modules += nfctype3
+builtin_sources += plugins/nfctype3.c
+endif
+
+if NFCTYPE4
+builtin_modules += nfctype4
+builtin_sources += plugins/nfctype4.c
+endif
+
+if NFCTYPE5
+builtin_modules += nfctype5
+builtin_sources += plugins/nfctype5.c
+endif
+
+if P2P
+builtin_modules += p2p
+builtin_sources += plugins/p2p.c plugins/npp.c \
+				plugins/snep.c \
+				plugins/snep-validation.c \
+				plugins/llcp-validation.c \
+				plugins/handover.c plugins/p2p.h \
+				plugins/phdc.c
+endif
+
+if SE
+builtin_se_modules += nfc
+builtin_se_sources += se/plugins/nfc.c
+builtin_se_cflags += @NETLINK_CFLAGS@
+builtin_se_libadd += @NETLINK_LIBS@
+endif

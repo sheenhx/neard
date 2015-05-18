@@ -1,0 +1,152 @@
+ver 0.15
+	Added iso15693 (NFC type5) support.
+	Added Secure Element support (seeld).
+	Added iso14443-B (NFC type4b) support.
+	Added NFC type5 RMB (Read Multiple Block) support.
+	Fixed NFC type1 dynamic read.
+	Fixed NFC type1 check_presence to only read the tag ID.
+	Fixed NFC type2 CC magic number check.
+	Fixed NFC type4 NDEF detection and handling code.
+	Fixed NFC type4 check_presence implementation.
+	Fixed PHDC coding style and potential bugs.
+	Fixed the constant poll loop to retry on busy adapters.
+	Fixed an agent memory leak.
+	Fixed and cleaned the build system.
+
+ver 0.14
+	Added a Tag and Device Adapter property.
+	Added NDEF agent record payload getter.
+	Added support for catching poll errors.
+	Added ObjectManager API support.
+	Added NPP push support.
+	Added simplified test scripts.
+	Fixed a t4t write bug.
+	Fixed NPP read.
+	Fixed security bugs.
+
+ver 0.13
+	Added PHDC Manager support.
+	Added nfctool firmware update support.
+	Added AAR NDEF support.
+	Added raw MIME type payload support.
+	Added multibyte handover CDR support.
+	Fixed coding style for NULL pointer and 0 checks.
+	Fixed a t4t memory leak.
+	Fixed a t1t capability container reading offset.
+	Fixed a handover memory leak.
+
+ver 0.12
+	Added static handover through LLCP support.
+	Added WiFi configuration handover through SNEP support.
+	Added nfctool SNEP decoding.
+	Added nfctool Handover decoding.
+	Added nfctool output coloring support.
+	Added type4B tag support.
+	Added p2p non blocking client socket support.
+	Fixed SNEP fragmentation support.
+	Fixed a type3 tag crash.
+	Fixed a bluetooth crash.
+	Fixed NFC bugs #45 and #48.
+
+ver 0.11
+	Added LLCP validation server support.
+	Added SNEP unit tests.
+	Added nfctool man page.
+	Added WiFi WSC NDEF building support.
+	Fixed AGF nfctool support.
+	Fixed type2 tag data length handling.
+	Fixed pkg-config libnl dependencies.
+	Fixed SNEP validation code for ARM.
+
+ver 0.10
+	Added initial WiFi handover support.
+	Added Service Name Lookup support to nfctool.
+	Added NDEF building unit tests.
+	Added State support to Bluetooth handover agent.
+	Added neard and neard.conf man pages.
+	Added a copy of the NFC kernel header.
+	Fixed handover validation tests failures.
+	Fixed Tag and Device PropertyChanged signal.
+
+ver 0.9
+	Added NDEF unit tests.
+	Added SNEP validation server support.
+	Added nfctool command line uility.
+	Added Bluetooth handover agent implementation.
+	Fixed build for several architectures.
+	Fixed p2p fallback mechanism.
+	Fixed Type3 tag reading default behaviour.
+
+ver 0.8
+	Added raw NDEF push through the NDEF agent API.
+	Fixed a couple of p2p file descriptor leaks.
+	Fixed CR handover record handling in handover Select frames.
+	Fixed handover version check support.
+	Fixed handover code to support AC less frames.
+	Fixed p2p client event routine to support multiple incoming requests.
+	Fixed netlink support for nested events.
+
+ver 0.7
+	Added support for Android Jelly Bean handover.
+	Added a Bluetooth handover automated script.
+	Added MIFARE Classic writing support.
+	Added MIFARE read only check support.
+	Added MIFARE check presence support.
+	Fixed a tag writing related double free.
+	Fixed tag plugins memory leaks.
+	Fixed tag plugins callback calls code paths.
+	Fixed URI NDEF writing.
+
+ver 0.6
+	Added tag formatting support for Type 1, 3 an 4.
+	Added blank tag detection for Type 1, 3 and 4.
+	Added an NDEF agent API implementation.
+	Fixed the handover agent API.
+	Fixed potential NULL pointer dereferences.
+	Fixed a few plugin memory leaks.
+	Fixed p2p NDEF push while p2p link is down.
+
+ver 0.5:
+	Added Handover Initiator support.
+	Added Handover selector support.
+	Added support for Type 2 tags formatting.
+	Added early binding support.
+	Fixed handover and p2p memory leaks.
+	Fixed Type 2 tag read command.
+	Fixed NDEF push return value.
+	Removed plugins enablement configure options.
+
+ver 0.4:
+	Added target mode support for peer to peer.
+	Added a handover agent API.
+	Fixed SNEP read fragmentation.
+	Fixed SNEP response frames version field.
+	Fixed build dependencies.
+	Fixed netlink and adapter memory leaks.
+
+ver 0.3:
+	Added a Tag D-Bus API.
+	Added an SNEP testing tool.
+	Added SNEP fragmentation support.
+	Added BlueZ signal handlers for adapter tracking.
+	Added BlueZ adapter properties handling.
+	Added a main.conf template.
+	Removed the Target D-Bus API.
+	Fixed Type 1 commands handling.
+
+ver 0.2:
+	Added SNEP support.
+	Added tag presence check implementation.
+	Added initial publishing API implementation.
+	Added MIFARE reader support.
+	Added NFC type 3 writer mode support.
+	Added netlink Powered property handling implementation.
+	Fixed p2p network conditions errors.
+	Fixed valgrind memory leak reports.
+
+ver 0.1:
+	Added reader mode for NFC types 1,2,3 and 4.
+	Added writer mode for NFC types 1,2, and 4.
+	Added peer to peer reader mode (NPP).
+	Added initial SNEP support.
+	Added initial Bluetooth OOB support.

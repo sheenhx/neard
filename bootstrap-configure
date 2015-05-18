@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ -f config.status ]; then
+	make maintainer-clean
+fi
+
+./bootstrap && \
+    ./configure --enable-maintainer-mode \
+		--enable-debug \
+		--disable-systemd \
+		--prefix=/usr \
+		--enable-ese \
+		--sysconfdir=/etc \
+		--enable-tools "$@" \
+		--host=HOST
