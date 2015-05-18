@@ -36,7 +36,7 @@
 #define LT_OBJDIR ".libs/"
 
 /* Define to 1 if you need libnl-1 compat functions. */
-#define NEED_LIBNL_COMPAT 1
+/* #undef NEED_LIBNL_COMPAT */
 
 /* Name of package */
 #define PACKAGE "neard"

@@ -1,1 +1,1 @@
-/home/sheen/NFC/neard/include/log.h
+/home/sheen/trunk/neard/include/log.h

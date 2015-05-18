@@ -36,7 +36,7 @@
 #include "near.h"
 
 /* We check for the tag being present every 2 seconds */
-#define CHECK_PRESENCE_PERIOD 2
+#define CHECK_PRESENCE_PERIOD 1    //shorten the heartbeat frame for checking the presence of tags, changed by sheen
 
 static DBusConnection *connection = NULL;
 
@@ -193,6 +193,7 @@ static int adapter_start_poll(struct near_adapter *adapter)
 static gboolean property_get_mode(const GDBusPropertyTable *property,
 					DBusMessageIter *iter, void *user_data)
 {
+	DBG("8");
 	struct near_adapter *adapter = user_data;
 	const char *rf_mode;
 
@@ -201,34 +202,37 @@ static gboolean property_get_mode(const GDBusPropertyTable *property,
 		return FALSE;
 
 	dbus_message_iter_append_basic(iter, DBUS_TYPE_STRING, &rf_mode);
-
+	DBG("9");
 	return TRUE;
 }
 
 static gboolean property_get_polling(const GDBusPropertyTable *property,
 					DBusMessageIter *iter, void *user_data)
 {
+	DBG("10");	
 	struct near_adapter *adapter = user_data;
 	dbus_bool_t val;
 
 	val = adapter->polling;
 
 	dbus_message_iter_append_basic(iter, DBUS_TYPE_BOOLEAN, &val);
-
+	DBG("11");
 	return TRUE;
 }
 
 static gboolean property_get_powered(const GDBusPropertyTable *property,
 					DBusMessageIter *iter, void *user_data)
 {
+	DBG("6");
 	struct near_adapter *adapter = user_data;
 	dbus_bool_t val;
 
 	val = adapter->powered;
 
 	dbus_message_iter_append_basic(iter, DBUS_TYPE_BOOLEAN, &val);
-
+	DBG("7");
 	return TRUE;
+
 }
 
 static void set_powered(GDBusPendingPropertySet id, dbus_bool_t powered,
@@ -270,7 +274,7 @@ static void property_set_powered(const GDBusPropertyTable *property,
 					GDBusPendingPropertySet id, void *data)
 {
 	dbus_bool_t powered;
-
+	DBG("4");
 	if (dbus_message_iter_get_arg_type(value) != DBUS_TYPE_BOOLEAN) {
 		g_dbus_pending_property_error(id,
 					NFC_ERROR_INTERFACE ".InvalidArguments",
@@ -281,6 +285,7 @@ static void property_set_powered(const GDBusPropertyTable *property,
 	dbus_message_iter_get_basic(value, &powered);
 
 	set_powered(id, powered, data);
+		DBG("5");
 }
 
 static void append_protocols(DBusMessageIter *iter,
@@ -288,7 +293,7 @@ static void append_protocols(DBusMessageIter *iter,
 {
 	const char *str;
 
-	DBG("protocols 0x%x", adapter->protocols);
+	DBG("modifed protocols 0x%x", adapter->protocols);
 
 	if (adapter->protocols & NFC_PROTO_FELICA_MASK) {
 		str = "Felica";
@@ -325,6 +330,7 @@ static void append_protocols(DBusMessageIter *iter,
 		str = "ISO-15693";
 
 		dbus_message_iter_append_basic(iter, DBUS_TYPE_STRING, &str);
+		DBG("ISO-15693");
 	}
 }
 
@@ -336,11 +342,11 @@ static gboolean property_get_protocols(const GDBusPropertyTable *property,
 
 	dbus_message_iter_open_container(iter, DBUS_TYPE_ARRAY,
 						DBUS_TYPE_STRING_AS_STRING, &dict);
-
+	
 	append_protocols(&dict, adapter);
-
+	DBG("1");
 	dbus_message_iter_close_container(iter, &dict);
-
+	DBG("2");
 	return TRUE;
 }
 
@@ -549,7 +555,7 @@ struct near_adapter *__near_adapter_create(uint32_t idx,
 	DBG("Powered %d", powered);
 
 	adapter->idx = idx;
-	adapter->protocols = protocols;
+	adapter->protocols = NFC_PROTO_ISO15693_MASK;   //confine the polling cycle just for ISO15693, changed by sheen
 	adapter->powered = powered;
 	adapter->constant_poll = near_setting_get_bool("ConstantPoll");
 	adapter->dep_up = false;
@@ -653,7 +659,7 @@ int __near_adapter_add(struct near_adapter *adapter)
 					NFC_ADAPTER_INTERFACE,
 					adapter_methods, NULL,
 					adapter_properties, adapter, NULL);
-
+	DBG("3");
 	return 0;
 }
 

@@ -1,1 +1,1 @@
-/home/sheen/NFC/neard/include/setting.h
+/home/sheen/trunk/neard/include/setting.h

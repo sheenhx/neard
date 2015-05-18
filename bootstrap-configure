@@ -8,8 +8,13 @@ fi
     ./configure --enable-maintainer-mode \
 		--enable-debug \
 		--disable-systemd \
-		--prefix=/usr \
-		--enable-ese \
-		--sysconfdir=/etc \
-		--enable-tools "$@" \
-		--host=HOST
+		--prefix=/home/sheen/nfc/usr \
+		--exec-prefix=/home/sheen/nfc/usr\
+		--sysconfdir=/home/sheen/nfc/etc \
+		--host=mipsel-openwrt-linux-uclibc \
+		MANIFEST_TOOL=: \
+		CC=mipsel-openwrt-linux-uclibc-gcc-4.8.3 \
+		LD=mipsel-openwrt-linux-uclibc-ld \
+		RANLIB=mipsel-openwrt-uclibc-ranlib \
+		LDFLAGS=-L/home/sheen/trunk/OpenWrt-SDK-ramips-mt7620_gcc-4.8-linaro_uClibc-0.9.33.2.Linux-x86_64/staging_dir/target-mipsel_24kec+dsp_uClibc-0.9.33.2/usr/lib
+

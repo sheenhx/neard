@@ -1,1 +1,1 @@
-/home/sheen/NFC/neard/include/version.h
+/home/sheen/trunk/neard/include/version.h

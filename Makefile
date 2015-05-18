@@ -78,14 +78,14 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-build_triplet = x86_64-unknown-linux-gnu
-host_triplet = x86_64-unknown-linux-gnu
+build_triplet = x86_64-unknown-linux-uclibc
+host_triplet = mipsel-openwrt-linux-uclibc
 bin_PROGRAMS = $(am__EXEEXT_1)
 pkglibexec_PROGRAMS = src/neard$(EXEEXT) $(am__EXEEXT_3)
-am__append_1 = se/seeld
-am__append_2 = se/builtin.h
-am__append_3 = tools/nfctool/nfctool
-noinst_PROGRAMS = tools/snep-send$(EXEEXT)
+#am__append_1 = se/seeld
+#am__append_2 = se/builtin.h
+#am__append_3 = tools/nfctool/nfctool
+#noinst_PROGRAMS = tools/snep-send$(EXEEXT)
 check_PROGRAMS = $(am__EXEEXT_2)
 TESTS = $(am__EXEEXT_2)
 DIST_COMMON = $(srcdir)/Makefile.plugins $(srcdir)/Makefile.in \
@@ -163,10 +163,10 @@ am__installdirs = "$(DESTDIR)$(plugindir)" "$(DESTDIR)$(se_plugindir)" \
 	"$(DESTDIR)$(systemdsystemunitdir)" "$(DESTDIR)$(includedir)" \
 	"$(DESTDIR)$(pkgincludedir)"
 LTLIBRARIES = $(plugin_LTLIBRARIES) $(se_plugin_LTLIBRARIES)
-am__EXEEXT_1 = tools/nfctool/nfctool$(EXEEXT)
+#am__EXEEXT_1 = tools/nfctool/nfctool$(EXEEXT)
 am__EXEEXT_2 = unit/test-ndef-parse$(EXEEXT) \
 	unit/test-ndef-build$(EXEEXT) unit/test-snep-read$(EXEEXT)
-am__EXEEXT_3 = se/seeld$(EXEEXT)
+#am__EXEEXT_3 = se/seeld$(EXEEXT)
 PROGRAMS = $(bin_PROGRAMS) $(noinst_PROGRAMS) $(pkglibexec_PROGRAMS)
 am__se_seeld_SOURCES_DIST = gdbus/gdbus.h gdbus/mainloop.c \
 	gdbus/watch.c gdbus/object.c gdbus/client.c gdbus/polkit.c \
@@ -178,21 +178,21 @@ am__objects_1 = gdbus/se_seeld-mainloop.$(OBJEXT) \
 	gdbus/se_seeld-watch.$(OBJEXT) gdbus/se_seeld-object.$(OBJEXT) \
 	gdbus/se_seeld-client.$(OBJEXT) \
 	gdbus/se_seeld-polkit.$(OBJEXT)
-am__objects_2 = se/plugins/se_seeld-nfc.$(OBJEXT)
-am_se_seeld_OBJECTS = $(am__objects_1) $(am__objects_2) \
-	src/se_seeld-log.$(OBJEXT) \
-	src/se_seeld-dbus.$(OBJEXT) \
-	src/se_seeld-error.$(OBJEXT) \
-	src/se_seeld-plugin.$(OBJEXT) \
-	se/se_seeld-main.$(OBJEXT) \
-	se/se_seeld-manager.$(OBJEXT) \
-	se/se_seeld-se.$(OBJEXT) se/se_seeld-driver.$(OBJEXT) \
-	se/se_seeld-apdu.$(OBJEXT) \
-	se/se_seeld-channel.$(OBJEXT) \
-	se/se_seeld-ace.$(OBJEXT)
+#am__objects_2 = se/plugins/se_seeld-nfc.$(OBJEXT)
+#am_se_seeld_OBJECTS = $(am__objects_1) $(am__objects_2) \
+#	src/se_seeld-log.$(OBJEXT) \
+#	src/se_seeld-dbus.$(OBJEXT) \
+#	src/se_seeld-error.$(OBJEXT) \
+#	src/se_seeld-plugin.$(OBJEXT) \
+#	se/se_seeld-main.$(OBJEXT) \
+#	se/se_seeld-manager.$(OBJEXT) \
+#	se/se_seeld-se.$(OBJEXT) se/se_seeld-driver.$(OBJEXT) \
+#	se/se_seeld-apdu.$(OBJEXT) \
+#	se/se_seeld-channel.$(OBJEXT) \
+#	se/se_seeld-ace.$(OBJEXT)
 se_seeld_OBJECTS = $(am_se_seeld_OBJECTS)
 am__DEPENDENCIES_1 =
-se_seeld_DEPENDENCIES = $(am__DEPENDENCIES_1)
+#se_seeld_DEPENDENCIES = $(am__DEPENDENCIES_1)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
@@ -253,17 +253,17 @@ am__tools_nfctool_nfctool_SOURCES_DIST = tools/nfctool/main.c \
 	tools/nfctool/snep-decode.c tools/nfctool/ndef-decode.h \
 	tools/nfctool/ndef-decode.c tools/nfctool/display.h \
 	tools/nfctool/display.c
-am_tools_nfctool_nfctool_OBJECTS = tools/nfctool/tools_nfctool_nfctool-main.$(OBJEXT) \
-	tools/nfctool/tools_nfctool_nfctool-adapter.$(OBJEXT) \
-	tools/nfctool/tools_nfctool_nfctool-netlink.$(OBJEXT) \
-	tools/nfctool/tools_nfctool_nfctool-sniffer.$(OBJEXT) \
-	tools/nfctool/tools_nfctool_nfctool-llcp-decode.$(OBJEXT) \
-	tools/nfctool/tools_nfctool_nfctool-snep-decode.$(OBJEXT) \
-	tools/nfctool/tools_nfctool_nfctool-ndef-decode.$(OBJEXT) \
-	tools/nfctool/tools_nfctool_nfctool-display.$(OBJEXT)
+#am_tools_nfctool_nfctool_OBJECTS = tools/nfctool/tools_nfctool_nfctool-main.$(OBJEXT) \
+#	tools/nfctool/tools_nfctool_nfctool-adapter.$(OBJEXT) \
+#	tools/nfctool/tools_nfctool_nfctool-netlink.$(OBJEXT) \
+#	tools/nfctool/tools_nfctool_nfctool-sniffer.$(OBJEXT) \
+#	tools/nfctool/tools_nfctool_nfctool-llcp-decode.$(OBJEXT) \
+#	tools/nfctool/tools_nfctool_nfctool-snep-decode.$(OBJEXT) \
+#	tools/nfctool/tools_nfctool_nfctool-ndef-decode.$(OBJEXT) \
+#	tools/nfctool/tools_nfctool_nfctool-display.$(OBJEXT)
 tools_nfctool_nfctool_OBJECTS = $(am_tools_nfctool_nfctool_OBJECTS)
-tools_nfctool_nfctool_DEPENDENCIES =  \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+#tools_nfctool_nfctool_DEPENDENCIES =  \
+#	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
 am__tools_snep_send_SOURCES_DIST = gdbus/gdbus.h gdbus/mainloop.c \
 	gdbus/watch.c gdbus/object.c gdbus/client.c gdbus/polkit.c \
 	src/log.c src/dbus.c src/bluetooth.c src/ndef.c \
@@ -271,14 +271,14 @@ am__tools_snep_send_SOURCES_DIST = gdbus/gdbus.h gdbus/mainloop.c \
 am__objects_11 = gdbus/mainloop.$(OBJEXT) gdbus/watch.$(OBJEXT) \
 	gdbus/object.$(OBJEXT) gdbus/client.$(OBJEXT) \
 	gdbus/polkit.$(OBJEXT)
-am_tools_snep_send_OBJECTS = $(am__objects_11) \
-	src/log.$(OBJEXT) src/dbus.$(OBJEXT) \
-	src/bluetooth.$(OBJEXT) src/ndef.$(OBJEXT) \
-	tools/snep-send.$(OBJEXT) src/error.$(OBJEXT) \
-	src/agent.$(OBJEXT)
+#am_tools_snep_send_OBJECTS = $(am__objects_11) \
+#	src/log.$(OBJEXT) src/dbus.$(OBJEXT) \
+#	src/bluetooth.$(OBJEXT) src/ndef.$(OBJEXT) \
+#	tools/snep-send.$(OBJEXT) src/error.$(OBJEXT) \
+#	src/agent.$(OBJEXT)
 tools_snep_send_OBJECTS = $(am_tools_snep_send_OBJECTS)
-tools_snep_send_DEPENDENCIES = $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1)
+#tools_snep_send_DEPENDENCIES = $(am__DEPENDENCIES_1) \
+#	$(am__DEPENDENCIES_1)
 am_unit_test_ndef_build_OBJECTS = $(am__objects_11) src/log.$(OBJEXT) \
 	src/dbus.$(OBJEXT) src/error.$(OBJEXT) src/agent.$(OBJEXT) \
 	src/bluetooth.$(OBJEXT) src/ndef.$(OBJEXT) \
@@ -576,18 +576,18 @@ am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
 distcleancheck_listfiles = find . -type f -print
 pkgincludedir = ${includedir}/near
 pkglibexecdir = ${libexecdir}/nfc
-ACLOCAL = ${SHELL} /home/sheen/NFC/neard/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/sheen/trunk/neard/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
-AR = ar
-AUTOCONF = ${SHELL} /home/sheen/NFC/neard/missing autoconf
-AUTOHEADER = ${SHELL} /home/sheen/NFC/neard/missing autoheader
-AUTOMAKE = ${SHELL} /home/sheen/NFC/neard/missing automake-1.14
+AR = mipsel-openwrt-linux-uclibc-ar
+AUTOCONF = ${SHELL} /home/sheen/trunk/neard/missing autoconf
+AUTOHEADER = ${SHELL} /home/sheen/trunk/neard/missing autoheader
+AUTOMAKE = ${SHELL} /home/sheen/trunk/neard/missing automake-1.14
 AWK = gawk
-CC = gcc
+CC = mipsel-openwrt-linux-uclibc-gcc-4.8.3
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Wall -O2 -D_FORTIFY_SOURCE=2 -Werror -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wdeclaration-after-statement -Wmissing-declarations -Wredundant-decls -Wcast-align -DG_DISABLE_DEPRECATED -g
-CPP = gcc -E
+CFLAGS = -Wall -O2 -D_FORTIFY_SOURCE=2 -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wdeclaration-after-statement -Wmissing-declarations -Wredundant-decls -Wcast-align -DG_DISABLE_DEPRECATED -g
+CPP = mipsel-openwrt-linux-uclibc-gcc-4.8.3 -E
 CPPFLAGS = 
 CYGPATH_W = echo
 DBUS_CFLAGS = -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include  
@@ -613,14 +613,14 @@ INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
-LD = /usr/bin/ld -m elf_x86_64
-LDFLAGS = 
-LIBNL1_CFLAGS =  
-LIBNL1_LIBS = -lnl  
+LD = mipsel-openwrt-linux-uclibc-ld
+LDFLAGS = -L/home/sheen/trunk/OpenWrt-SDK-ramips-mt7620_gcc-4.8-linaro_uClibc-0.9.33.2.Linux-x86_64/staging_dir/target-mipsel_24kec+dsp_uClibc-0.9.33.2/usr/lib
+LIBNL1_CFLAGS = 
+LIBNL1_LIBS = 
 LIBNL2_CFLAGS = 
 LIBNL2_LIBS = 
-LIBNL3_CFLAGS = 
-LIBNL3_LIBS = 
+LIBNL3_CFLAGS = -I/usr/include/libnl3  
+LIBNL3_LIBS = -lnl-genl-3 -lnl-3  
 LIBOBJS = 
 LIBS = 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
@@ -628,15 +628,15 @@ LIPO =
 LN_S = ln -s
 LTLIBOBJS = 
 MAINT = 
-MAKEINFO = ${SHELL} /home/sheen/NFC/neard/missing makeinfo
+MAKEINFO = ${SHELL} /home/sheen/trunk/neard/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
-NETLINK_CFLAGS =  
-NETLINK_DEPS = libnl-1
-NETLINK_LIBS = -lnl  
-NM = /usr/bin/nm -B
+NETLINK_CFLAGS = -I/usr/include/libnl3  
+NETLINK_DEPS = libnl-3.0 libnl-genl-3.0
+NETLINK_LIBS = -lnl-genl-3 -lnl-3  
+NM = /home/sheen/trunk/staging_dir/toolchain-mipsel_24kec+dsp_gcc-4.8-linaro_uClibc-0.9.33.2/bin/mipsel-openwrt-linux-uclibc-nm -B
 NMEDIT = 
-OBJDUMP = objdump
+OBJDUMP = mipsel-openwrt-linux-uclibc-objdump
 OBJEXT = o
 OTOOL = 
 OTOOL64 = 
@@ -651,20 +651,20 @@ PATH_SEPARATOR = :
 PKG_CONFIG = /usr/bin/pkg-config
 PKG_CONFIG_LIBDIR = 
 PKG_CONFIG_PATH = 
-RANLIB = ranlib
+RANLIB = mipsel-openwrt-uclibc-ranlib
 SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash
-STRIP = strip
+STRIP = mipsel-openwrt-linux-uclibc-strip
 SYSTEMD_SYSTEMUNITDIR = 
 SYSTEMD_USERUNITDIR = 
 VERSION = 0.15
-abs_builddir = /home/sheen/NFC/neard
-abs_srcdir = /home/sheen/NFC/neard
-abs_top_builddir = /home/sheen/NFC/neard
-abs_top_srcdir = /home/sheen/NFC/neard
-ac_ct_AR = ar
-ac_ct_CC = gcc
+abs_builddir = /home/sheen/trunk/neard
+abs_srcdir = /home/sheen/trunk/neard
+abs_top_builddir = /home/sheen/trunk/neard
+abs_top_srcdir = /home/sheen/trunk/neard
+ac_ct_AR = 
+ac_ct_CC = 
 ac_ct_DUMPBIN = 
 am__include = include
 am__leading_dot = .
@@ -672,26 +672,26 @@ am__quote =
 am__tar = $${TAR-tar} chof - "$$tardir"
 am__untar = $${TAR-tar} xf -
 bindir = ${exec_prefix}/bin
-build = x86_64-unknown-linux-gnu
+build = x86_64-unknown-linux-uclibc
 build_alias = 
 build_cpu = x86_64
-build_os = linux-gnu
+build_os = linux-uclibc
 build_vendor = unknown
 builddir = .
 datadir = ${datarootdir}
 datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
-exec_prefix = ${prefix}
-host = x86_64-unknown-linux-gnu
-host_alias = 
-host_cpu = x86_64
-host_os = linux-gnu
-host_vendor = unknown
+exec_prefix = /home/sheen/nfc/usr
+host = mipsel-openwrt-linux-uclibc
+host_alias = mipsel-openwrt-linux-uclibc
+host_cpu = mipsel
+host_os = linux-uclibc
+host_vendor = openwrt
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/sheen/NFC/neard/install-sh
+install_sh = ${SHELL} /home/sheen/trunk/neard/install-sh
 libdir = ${prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -701,14 +701,14 @@ mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
 plugindir = ${pkglibdir}/plugins
-prefix = /usr
+prefix = /home/sheen/nfc/usr
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
 se_plugindir = ${pkglibdir}/plugins-se
 sharedstatedir = ${prefix}/com
 srcdir = .
-sysconfdir = /etc
+sysconfdir = /home/sheen/nfc/etc
 target_alias = 
 top_build_prefix = 
 top_builddir = .
@@ -753,20 +753,20 @@ AM_CPPFLAGS = ${GLIB_CFLAGS} ${DBUS_CFLAGS} ${NETLINK_CFLAGS} \
 		-I$(builddir)/include -I$(builddir)/src -I$(srcdir)/gdbus
 
 AM_CFLAGS = ${builtin_cflags} -I$(builddir)/include -I$(builddir)/src -I$(srcdir)/gdbus
-se_plugin_LTLIBRARIES = 
-se_plugin_objects = 
-builtin_se_modules = nfc
-builtin_se_sources = se/plugins/nfc.c
-builtin_se_libadd = -lnl  
-builtin_se_cflags =  
-se_seeld_SOURCES = $(gdbus_sources) $(builtin_se_sources) \
-			src/log.c src/dbus.c src/error.c src/plugin.c \
-			se/main.c se/seel.h se/manager.c se/manager.h \
-			se/se.c se/driver.c se/driver.h se/apdu.c \
-			se/channel.c se/ace.c
+#se_plugin_LTLIBRARIES = 
+#se_plugin_objects = 
+#builtin_se_modules = nfc
+#builtin_se_sources = se/plugins/nfc.c
+#builtin_se_libadd = -lnl-genl-3 -lnl-3  
+#builtin_se_cflags = -I/usr/include/libnl3  
+#se_seeld_SOURCES = $(gdbus_sources) $(builtin_se_sources) \
+#			src/log.c src/dbus.c src/error.c src/plugin.c \
+#			se/main.c se/seel.h se/manager.c se/manager.h \
+#			se/se.c se/driver.c se/driver.h se/apdu.c \
+#			se/channel.c se/ace.c
 
-se_seeld_LDADD = $(builtin_se_libadd) -lglib-2.0   -ldbus-1   -ldl
-se_seeld_LDFLAGS = -Wl,--export-dynamic
+#se_seeld_LDADD = $(builtin_se_libadd) -lglib-2.0   -ldbus-1   -ldl
+#se_seeld_LDFLAGS = -Wl,--export-dynamic
 src_neard_CFLAGS = ${builtin_cflags} -I$(builddir)/include -I$(builddir)/src -I$(srcdir)/gdbus
 src_neard_CPPFLAGS = ${GLIB_CFLAGS} ${DBUS_CFLAGS} ${NETLINK_CFLAGS} \
 			-DNEAR_PLUGIN_BUILTIN \
@@ -774,12 +774,12 @@ src_neard_CPPFLAGS = ${GLIB_CFLAGS} ${DBUS_CFLAGS} ${NETLINK_CFLAGS} \
 			-DCONFIGDIR=\""$(configdir)\"" \
 			-I$(builddir)/include -I$(builddir)/src -I$(srcdir)/gdbus
 
-src_seeld_CFLAGS = ${builtin_se_cflags} -I$(builddir)/include -I$(builddir)/src -I$(srcdir)/gdbus
-se_seeld_CPPFLAGS = ${GLIB_CFLAGS} ${DBUS_CFLAGS} ${NETLINK_CFLAGS} \
-					-DNEAR_PLUGIN_BUILTIN \
-					-DPLUGINDIR=\""$(build_se_plugindir)"\" \
-					-DCONFIGDIR=\""$(configdir)\"" \
-					-I$(builddir)/se
+#src_seeld_CFLAGS = ${builtin_se_cflags} -I$(builddir)/include -I$(builddir)/src -I$(srcdir)/gdbus
+#se_seeld_CPPFLAGS = ${GLIB_CFLAGS} ${DBUS_CFLAGS} ${NETLINK_CFLAGS} \
+#					-DNEAR_PLUGIN_BUILTIN \
+#					-DPLUGINDIR=\""$(build_se_plugindir)"\" \
+#					-DCONFIGDIR=\""$(configdir)\"" \
+#					-I$(builddir)/se
 
 CLEANFILES = src/builtin.h se/builtin.h $(local_headers) \
 	src/neard.service
@@ -787,8 +787,8 @@ configdir = ${sysconfdir}/neard
 dist_noinst_DATA = src/main.conf
 dbusdir = ${sysconfdir}/dbus-1/system.d/
 dist_dbus_DATA = src/org.neard.conf
-#build_se_plugindir = $(se_plugindir)
-build_se_plugindir = $(abs_top_srcdir)/se/plugins/.libs
+##build_se_plugindir = $(se_plugindir)
+#build_se_plugindir = $(abs_top_srcdir)/se/plugins/.libs
 #build_plugindir = $(plugindir)
 build_plugindir = $(abs_top_srcdir)/plugins/.libs
 doc_files = doc/tag-api.txt doc/device-api.txt doc/adapter-api.txt \
@@ -807,30 +807,30 @@ test_scripts = test/test-adapter test/test-device \
 #systemdsystemunit_DATA = src/neard.service
 #testdir = $(pkglibdir)/test
 #test_SCRIPTS = $(test_scripts)
-tools_snep_send_SOURCES = $(gdbus_sources) src/log.c src/dbus.c \
-					src/bluetooth.c src/ndef.c \
-					tools/snep-send.c src/error.c \
-					src/agent.c
+#tools_snep_send_SOURCES = $(gdbus_sources) src/log.c src/dbus.c \
+#					src/bluetooth.c src/ndef.c \
+#					tools/snep-send.c src/error.c \
+#					src/agent.c
 
-tools_snep_send_LDADD = ${GLIB_LIBS} ${DBUS_LIBS}
-tools_nfctool_nfctool_SOURCES = tools/nfctool/main.c \
-					tools/nfctool/nfctool.h \
-					tools/nfctool/adapter.h \
-					tools/nfctool/adapter.c \
-					tools/nfctool/netlink.h \
-					tools/nfctool/netlink.c \
-					tools/nfctool/sniffer.h \
-					tools/nfctool/sniffer.c \
-					tools/nfctool/llcp-decode.h \
-					tools/nfctool/llcp-decode.c \
-					tools/nfctool/snep-decode.h \
-					tools/nfctool/snep-decode.c \
-					tools/nfctool/ndef-decode.h \
-					tools/nfctool/ndef-decode.c \
-					tools/nfctool/display.h \
-					tools/nfctool/display.c
+#tools_snep_send_LDADD = ${GLIB_LIBS} ${DBUS_LIBS}
+#tools_nfctool_nfctool_SOURCES = tools/nfctool/main.c \
+#					tools/nfctool/nfctool.h \
+#					tools/nfctool/adapter.h \
+#					tools/nfctool/adapter.c \
+#					tools/nfctool/netlink.h \
+#					tools/nfctool/netlink.c \
+#					tools/nfctool/sniffer.h \
+#					tools/nfctool/sniffer.c \
+#					tools/nfctool/llcp-decode.h \
+#					tools/nfctool/llcp-decode.c \
+#					tools/nfctool/snep-decode.h \
+#					tools/nfctool/snep-decode.c \
+#					tools/nfctool/ndef-decode.h \
+#					tools/nfctool/ndef-decode.c \
+#					tools/nfctool/display.h \
+#					tools/nfctool/display.c
 
-tools_nfctool_nfctool_LDADD = ${GLIB_LIBS} ${NETLINK_LIBS}
+#tools_nfctool_nfctool_LDADD = ${GLIB_LIBS} ${NETLINK_LIBS}
 tools_nfctool_nfctool_CPPFLAGS = ${GLIB_CFLAGS} ${DBUS_CFLAGS} ${NETLINK_CFLAGS} \
 			-DNEAR_PLUGIN_BUILTIN \
 			-DPLUGINDIR=\""$(plugindir)"\" \

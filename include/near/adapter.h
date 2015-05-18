@@ -1,1 +1,1 @@
-/home/sheen/NFC/neard/include/adapter.h
+/home/sheen/trunk/neard/include/adapter.h
