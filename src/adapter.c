@@ -422,10 +422,10 @@ static gboolean check_presence(gpointer user_data)
 		return FALSE;
 
 	tag = adapter->tag_link;
-	if (!tag)
+	if (!tag)  
 		goto out_err;
 
-	err = __near_tag_check_presence(tag, tag_present_cb);
+	err = __near_tag_check_presence(tag, tag_present_cb);   
 	if (err < 0) {
 		DBG("Could not check target presence");
 		goto out_err;
@@ -475,11 +475,16 @@ static void tag_present_cb(uint32_t adapter_idx, uint32_t target_idx,
 			adapter_start_poll(adapter);
 
 		return;
-	}
+	} 
 
-	adapter->presence_timeout =
-		g_timeout_add_seconds(CHECK_PRESENCE_PERIOD,
-					check_presence, adapter);
+//stop checking presence, changed by Sheen, May 2015
+
+	near_adapter_disconnect(adapter->idx);
+		__near_adapter_remove_target(adapter->idx, target_idx);
+
+	//adapter->presence_timeout = 
+		//g_timeout_add_seconds(CHECK_PRESENCE_PERIOD,
+					//check_presence, adapter);
 }
 
 void __near_adapter_start_check_presence(uint32_t adapter_idx,
@@ -493,6 +498,7 @@ void __near_adapter_start_check_presence(uint32_t adapter_idx,
 			GINT_TO_POINTER(adapter_idx));
 	if (!adapter)
 		return;
+
 
 	adapter->presence_timeout =
 			g_timeout_add_seconds(CHECK_PRESENCE_PERIOD,
@@ -691,6 +697,7 @@ static void tag_read_cb(uint32_t adapter_idx, uint32_t target_idx, int status)
 
 		return;
 	}
+	
 
 	adapter->presence_timeout =
 		g_timeout_add_seconds(CHECK_PRESENCE_PERIOD,

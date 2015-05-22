@@ -126,6 +126,7 @@ static void append_records(DBusMessageIter *iter, void *user_data)
 		dbus_message_iter_append_basic(iter, DBUS_TYPE_OBJECT_PATH,
 							&path);
 	}
+
 }
 
 static const char *type_string(struct near_tag *tag)
@@ -282,7 +283,10 @@ static void tag_read_cb(uint32_t adapter_idx, uint32_t target_idx, int status)
 		tag->write_msg = NULL;
 	}
 
-	__near_adapter_start_check_presence(adapter_idx, target_idx);
+	near_adapter_disconnect(tag->adapter_idx);
+	__near_adapter_remove_target(tag->adapter_idx, tag->target_idx);  //stop checking presence, changed by Sheen, May 2015
+
+	//__near_adapter_start_check_presence(adapter_idx, target_idx);
 }
 
 static void write_cb(uint32_t adapter_idx, uint32_t target_idx, int status)
@@ -1158,9 +1162,12 @@ int __near_tag_write(struct near_tag *tag,
 	if (!list)
 		err = -EOPNOTSUPP;
 
-	if (err < 0)
-		__near_adapter_start_check_presence(tag->adapter_idx,
-							tag->target_idx);
+	if (err < 0) {
+		near_adapter_disconnect(tag->adapter_idx);
+		__near_adapter_remove_target(tag->adapter_idx, tag->target_idx);  //stop checking presence, changed by Sheen, May 2015
+	}
+		//__near_adapter_start_check_presence(tag->adapter_idx,
+							//tag->target_idx);
 
 	return err;
 }
